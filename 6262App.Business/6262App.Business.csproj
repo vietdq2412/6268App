@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\6282App.core\6282App.core.csproj" />
-    <ProjectReference Include="..\6282App\6282App.Infrastructure.csproj" />
+    <ProjectReference Include="..\6282App.Infrastructure\6282App.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

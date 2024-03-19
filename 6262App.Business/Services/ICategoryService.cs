@@ -27,20 +27,20 @@ namespace _6262App.Business.Services
             return list;
         }
 
-        public Category? FindById(long? id)
+        public Task<Category?> FindById(long? id)
         {
-            return categoryRepository.FindById(id).Result;
+            return categoryRepository.FindById(id);
         }
 
-        public bool Delete(long id)
+        public Task Delete(long id)
         {
-            return categoryRepository.Delete(id).IsCompleted;
+            return categoryRepository.Delete(id);
         }
 
 
-        public bool Update(long id)
+        public Task Update(long id)
         {
-            return categoryRepository.Update(categoryRepository.FindById(id).Result!).IsCompleted;
+            return categoryRepository.Update(categoryRepository.FindById(id).Result!);
         }
     }
 }

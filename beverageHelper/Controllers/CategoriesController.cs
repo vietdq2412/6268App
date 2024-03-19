@@ -31,7 +31,7 @@ namespace beverageHelper.Controllers
 
         public IActionResult Delete(long id)
         {
-            if (categoryService.Delete(id))
+            if (categoryService.Delete(id).IsCompleted)
             {
                 return RedirectToAction(nameof(Index));
             }
