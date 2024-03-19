@@ -1,0 +1,43 @@
+﻿@model IEnumerable<_6282App.core.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4">
+            <div class="d-flex justify-content-center container mt-5">
+                <div class="card p-3 bg-white">
+                    <i class="fa fa-apple"></i>
+                    <div class="about-product text-center mt-2">
+                        <img src="https://png.pngtree.com/png-clipart/20230511/ourmid/pngtree-isolated-cat-on-white-background-png-image_7094927.png" width="300">
+                        <div>
+                            <h4>@item.Name</h4>
+                            <h6 class="mt-0 text-black-50">@item.Supplier!.Name</h6>
+                        </div>
+                    </div>
+                    <div class="stats mt-2">
+                        <div class="d-flex justify-content-between p-price">
+                            <span>Size M</span><span>M, L</span>
+                        </div>
+                        <div class="d-flex justify-content-between p-price">
+                            <span>Pro stand</span><span>@item.Price</span>
+                        </div>
+                        <div class="d-flex justify-content-between p-price">
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

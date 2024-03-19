@@ -1,0 +1,71 @@
+﻿@model IEnumerable<_6282App.core.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .input-group-text:hover{
+        cursor:pointer;
+        background-color:antiquewhite
+    }
+
+    
+</style>
+<script>
+    function redirectToCreate() {
+        var catName = $('#catName').val();
+        window.location.href = 'Categories/Create?catName=' + catName;
+    }
+</script>
+
+<div class="row">
+    <div class="col-5">
+        <div class="input-group md-3">
+            <input id="catName" type="text" class="form-control" placeholder="Category name" aria-label="Category name" aria-describedby="basic-addon2">
+            <span class="input-group-text" id="basic-addon2" onclick="redirectToCreate()">Add</span>
+        </div>
+    </div>
+    <div class="col-7"></div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedDate)
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+</div>
